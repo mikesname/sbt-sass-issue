@@ -5,6 +5,9 @@ ThisBuild / scalacOptions ++= Seq(
   "-feature",
   "-Werror"
 )
+ThisBuild / javaOptions ++= Seq(
+  s"-Dlogger.file=${(LocalRootProject / baseDirectory).value / "conf" / s"logback-${play.core.PlayVersion.current}.xml"}"
+)
 
 lazy val subproj = (project in file("subproj"))
   .enablePlugins(PlayScala)
